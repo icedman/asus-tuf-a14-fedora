@@ -1,7 +1,7 @@
 # Guides
 - [Fedora Installation Guide](https://asus-linux.org/guides/fedora-guide/)
 - [How to Change Brightness on a Linux Laptop](https://smarttech101.com/how-change-brightness-on-a-linux-laptop)
-- [Reddit | Fedora Nvidia Secure Boot] (https://www.reddit.com/r/Fedora/comments/18bj1kt/fedora_nvidia_secure_boot/)
+- [Reddit | Fedora Nvidia Secure Boot](https://www.reddit.com/r/Fedora/comments/18bj1kt/fedora_nvidia_secure_boot/)
 
 # Installation
 
