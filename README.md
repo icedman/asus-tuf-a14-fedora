@@ -33,8 +33,8 @@ Use Bios Boot menu (press ESC at starting of PC) to choose Windows or Linux.
 Follow the reddit guide above. Read especially on MOK (Machine Owner Kernel) signing.
 
 ```sh
-sudo dnf install \   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
-sudo dnf install \   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
 sudo dnf upgrade --refresh 
 sudo dnf install kernel-devel
 sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda
@@ -102,7 +102,7 @@ x x x x
         /usr/local/sbin/restore_kb.sh
 ```
 
-# Brightness Up and Brightness down keys
+## Brightness Up and Brightness down keys
 
 If the keys (f6 and f7) are not functioning:
 
@@ -127,7 +127,7 @@ action=/etc/acpi/actions/brightness_down.sh
 Copy the brightness scripts to ```/etc/acpi/actions/```. Reboot or restart ```acpid```
 
 
-# supergfxctl
+## supergfxctl
 
 Change gpu with these commands:
 
@@ -138,9 +138,9 @@ supergfxctl -m Hybrid
 
 ***Warning***
 
-Switching to ```Integrated``` might mess up the drivers and you'll boot into black screen. Just change TTY (CTRL+ALT+F4) and switch book to ```Hybrid```
+Switching to ```Integrated``` might mess up the drivers and you'll boot into a black screen. Just change TTY (CTRL+ALT+F4) and switch back to ```Hybrid```
 
-You'll have to build supergfxctl yourself. Follow the asus-linux guide. And you'll have to patch the code before compiling at around line 324:
+You'll have to build supergfxctl yourself. Follow the asus-linux guide. And you'll have to patch the code before compiling at around line 324 of ```src/pci_device.rs```:
 
 ```patch
 -                                let hwmon_n_opt = match dev_path.read_dir() {
@@ -156,8 +156,9 @@ You'll have to build supergfxctl yourself. Follow the asus-linux guide. And you'
 +                                )?.next();
 ```
 
-# suppress some messages when running Integrated gpu
+## suppress some messages when running Integrated gpu
 
 ```sh
 sudo systemctl mask nvidia-fallback.service
 ```
+
