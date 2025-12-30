@@ -202,6 +202,6 @@ This will return GPIO 24 is active
 
 [Source](https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#Ryzen_7000_Series) 
 
+## Rabit holes
 
-
-
+* This laptop doesn't support s3 (deep sleep). Stop trying to force s3 - just to fix instant wake.
