@@ -162,3 +162,46 @@ You'll have to build supergfxctl yourself. Follow the asus-linux guide. And you'
 sudo systemctl mask nvidia-fallback.service
 ```
 
+## updating
+
+Nvidia often doesn't get updated correctly. Force akmods
+
+```sh
+sudo akmods --force --kernel "$(uname -r)"
+```
+then
+
+```sh
+sudo dracut --force
+```
+## suspend fails with external monitor
+
+Laptop instant-wakes after suspend
+
+```sh
+sudo grubby --update-kernel=ALL --args='gpiolib_acpi.ignore_interrupt=AMDI0030:00@24 acpi_backlight=vendor'
+```
+
+Above show pin 24 will be ignored as it causes the instant wake - when monitor is attached.
+
+To find the cause of instant wake:
+
+```sh
+sudo sh -c 'echo 1 > /sys/power/pm_debug_messages'
+systemctl suspend
+sudo dmesg
+```
+
+IRQ 7 causes the wake
+
+```sh
+sudo dmesg | grep GPIO
+```
+
+This will return GPIO 24 is active
+
+[Source](https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#Ryzen_7000_Series) 
+
+
+
+
