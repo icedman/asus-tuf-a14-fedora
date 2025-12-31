@@ -30,7 +30,15 @@ Use Bios Boot menu (press ESC at starting of PC) to choose Windows or Linux.
 
 # NVIDIA
 
+https://docs.fedoraproject.org/en-US/fedora/latest/getting-started
+If you use an NVIDIA GPU and are experiencing significant visual issues while running Fedora from a live USB,
+it could be that your GPU is not fully compatible with the FOSS Nouveau driver.
+One possible workaround for this situation is to do the following 3 steps:
+1. During the live USB boot process, hit e at the GRUB boot menu.
+2. Find the line that begins with linux, and add nouveau.modeset=0 to the end of that line.
+3. ress <ctrl> + x to resume the boot process.
 Follow the reddit guide above. Read especially on MOK (Machine Owner Kernel) signing.
+
 
 ```sh
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
