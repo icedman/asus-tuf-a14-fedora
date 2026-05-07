@@ -1,6 +1,9 @@
 [Unit]
 Description=Remap f4 and f5 using evsieve
+After=systemd-suspend.service
+
 [Service]
 ExecStart=/usr/local/sbin/remap.sh
+
 [Install]
 WantedBy=multi-user.target

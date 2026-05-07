@@ -174,6 +174,14 @@ then
 ```sh
 sudo dracut --force
 ```
+
+## Rollback
+
+```sh
+sudo dnf remove xorg-x11-drv-nvidia\* akmod-nvidia\*
+sudo dnf install akmod-nvidia-580xx xorg-x11-drv-nvidia-580xx-cuda
+```
+
 ## suspend fails with external monitor
 
 Laptop instant-wakes after suspend
@@ -205,3 +213,4 @@ This will return GPIO 24 is active
 ## Rabit holes
 
 * This laptop doesn't support s3 (deep sleep). Stop trying to force s3 - just to fix instant wake.
+

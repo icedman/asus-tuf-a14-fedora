@@ -9,3 +9,4 @@ brightness=$(echo "$output" | grep "Current keyboard led brightness:" | awk '{pr
 # Save the brightness value to the temporary file
 echo "$brightness" > /tmp/kb
 
+asusctl -k off

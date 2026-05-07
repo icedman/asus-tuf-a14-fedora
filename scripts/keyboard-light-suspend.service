@@ -1,0 +1,10 @@
+[Unit]
+Description=system suspend actions
+Before=systemd-suspend.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/save_kb.sh
+
+[Install]
+WantedBy=systemd-suspend.service

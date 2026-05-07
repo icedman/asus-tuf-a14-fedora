@@ -1,0 +1,14 @@
+[Unit]
+Description=system resume actions
+After=systemd-suspend.service
+After=systemd-hibernate.service
+After=systemd-suspend-then-hibernate.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/restore_kb.sh
+
+[Install]
+WantedBy=systemd-suspend.service
+WantedBy=systemd-hibernate.service
+WantedBy=systemd-suspend-then-hibernate.service

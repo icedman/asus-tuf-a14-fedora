@@ -7,5 +7,5 @@
 #         --output
 
 evsieve --input /dev/input/event3 \
-        --hook key:f4 exec-shell="asusctl led-mode -n > /dev/null 2>&1" \
+        --hook key:f4 exec-shell="asusctl aura -n > /dev/null 2>&1" \
         --hook key:f5 exec-shell="asusctl profile -n  > /dev/null 2>&1"
