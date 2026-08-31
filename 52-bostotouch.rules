@@ -1,0 +1,7 @@
+# /etc/udev/rules.d/99-bostotouch.rules
+# 2024 March 07, u/NonStandardUser
+# No tinkering required, just add this rule to udev.
+
+KERNEL=="0003:05AC:0265.*", \
+PROGRAM="/bin/sh -c 'echo -n %k > /sys/bus/hid/drivers/magicmouse/unbind;\
+echo -n %k > /sys/bus/hid/drivers/hid-multitouch/bind'"
